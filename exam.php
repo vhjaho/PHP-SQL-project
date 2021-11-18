@@ -99,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		4. Change to Liters - 725 ml = <input type="text" name="fourthU"><br>
 		5. Change to micrometer - 22.45 mm = <input type="text" name="fifthU"><br>
         <input type="submit" name="checkUnits" value="Submit">
-
+	</form>
 	<br><br>
 
 	<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
