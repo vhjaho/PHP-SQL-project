@@ -24,26 +24,43 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 		
 			if (strlen($_POST['fname'])>10) {
 				echo 'First name is too long.';
-			} else if ((strlen($_POST['lname'])>10)) {
+
+			} else if (strlen($_POST['lname'])>10) {
 				echo 'Last name is too long.';
+
+			} else if (strlen($_POST['fname'])<3) {
+				echo 'Last name is too short.';
+
+			} else if (strlen($_POST['lname'])<3) {
+				echo 'Last name is too long.';
+
+			} else if (filter_var($_POST['fname'], FILTER_VALIDATE_INT) == true) {
+				echo 'Numbers are not allowed';
+
+			} else if (filter_var($_POST['lname'], FILTER_VALIDATE_INT) == true) {
+				echo 'Numbers are not allowed';
+
 			} else {
+
 				$_SESSION['fname'] = $_POST['fname'];
 				$_SESSION['lname'] = $_POST['lname'];
+				echo"Welcome, " . $_SESSION['fname'] . " " . $_SESSION['lname'];
+
 			}
 			
-
 		}
+
 	}
+
 ?>
 
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-    <title>Title</title>
-	<link rel="stylesheet" href="css-tiedosto">
+    <title>Math Exam</title>
 </head>
 <body>
-	<h3>Math Test - Time Limit 60 minutes</h3>
+	<div id=divLog>
 	<br>
 	<br>
 	<h1>Insert your first and last name</h1>
@@ -53,12 +70,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         Give your last name: <input type="text" name="lname"><br>
         <label for="slc">Are you a student or a teacher?</label>
         <select name="slc" id="slc">
-            <option value="volvo">Student</option>
-            <option value="saab">Teacher</option>
+            <option value="student">Student</option>
+            <option value="teacher">Teacher</option>
         </select>
         <input type="submit" name="login" value="Login">
 
 	</form>
-
+	</div>
 </body>
 </html>

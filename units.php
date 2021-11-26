@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_POST['checkUnits'])) {
+if (isset($_POST['checkAnswers'])) {
 
     $_SESSION['firstU'] = $_POST['firstU'];
 	$_SESSION['secondU'] = $_POST['secondU'];
@@ -8,6 +8,8 @@ if (isset($_POST['checkUnits'])) {
 	$_SESSION['fourthU'] = $_POST['fourthU'];
 	$_SESSION['fifthU'] = $_POST['fifthU'];
 	$_SESSION['answersU'] = array($_SESSION['firstU'], $_SESSION['secondU'], $_SESSION['thirdU'], $_SESSION['fourthU'], $_SESSION['fifthU']);
+
+    //validation
 
     if ($_SESSION['firstU'] == '0.925 mg') {
         $_SESSION['points']++;
